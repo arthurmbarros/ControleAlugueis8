@@ -33,12 +33,14 @@ def TotalAlugueis():
     cursor.execute("select contratos.valor from contratos;")
     resultados = cursor.fetchall()
     print()
-    print(linhas(65))
+    print(linhas(100))
     cont = 0
+    c=0
     for linha in resultados:
         cont = linha[0] + cont
-    print("Sua recebimento mensal de alugueis está previsto em {}R$ {:.2f}{}".format(Fore.LIGHTYELLOW_EX,cont,Style.RESET_ALL).replace(".", ","))
-    print(linhas(65))
+        c=c+1
+    print("Sua recebimento mensal de alugueis está previsto em {}R$ {:.2f}{} provenientes de {}{}{} contratos ativos".format(Fore.LIGHTYELLOW_EX,cont,Style.RESET_ALL,Fore.LIGHTYELLOW_EX,c,Style.RESET_ALL).replace(".", ","))
+    print(linhas(100))
     print()
     conn.close()
 
