@@ -28,7 +28,6 @@ def lercontratos(x):
 
 
 def TotalAlugueis():
-    os.system('cls')
     conn = sqlite3.connect('dbalugueisv2.db')
     cursor = conn.cursor()
     cursor.execute("select contratos.valor from contratos;")
