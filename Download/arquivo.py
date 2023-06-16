@@ -74,7 +74,7 @@ def exibir_tela_inicial():
     print("*                               *")
     print("*      CONTRATOS DE LOCAÇÃO     *")
     print("*                               *")
-    print("*         Versão 7.0            *")
+    print("*         Versão 8.0            *")
     print("*                               *")
     print("*********************************")
     print(f"{Style.RESET_ALL}")
