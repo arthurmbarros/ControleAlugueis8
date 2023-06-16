@@ -21,7 +21,7 @@ def lercontratos(x):
     print('{:<3} {:<33} {:<24} {:<45} {:<13} {:<12} {:<5} '.format('ID','INQUILINO', 'CIDADE', 'ENDEREÇO','VALOR','DATA BASE','INDICE'))
     print(linhas(147))
     for linha in resultados:
-        print("{:<3} {:<33} {:<24} {:<45} R$ {:<10.2f} {:<13}{:<2} ".format(linha[0], linha[1], linha[2], linha[3], (linha[4]), linha[5], linha[6]).replace(".", ","))
+        print("{:<3} {:<33} {:<24} {:<45} R$ {:<10.2f} {:<13}{:<2} ".format(linha[0], linha[1], linha[2], linha[3], (linha[4]), linha[5], linha[6]))
     conn.close()
     print(linhas(147))
     print()
