@@ -30,7 +30,8 @@ def contratos():
             cadastrar_contratos()
         elif resposta == 2:  # VER CONTRATOS CADASTRADOS
             lercontratos(val)
-            sleep(1)
+            TotalAlugueis()
+            sleep(3)
         elif resposta == 3:  # EDITAR CONTRATOS
             editar_contratos()
         elif resposta == 4:  # APAGAR CONTRATOS
@@ -68,7 +69,6 @@ def cadastrar_contratos():
             print("\033[31mID inválido, digite novamente:\033[0m")
         imovel = input('Digite o ID do imóvel que deseja cadastrar no contrato: ')
         if imovel.lower().strip() == 'exit':
-
             contratos()
     aluguel = leiadinheiro('Digite o valor do aluguel: R$ ')
     if aluguel == 'exit':
@@ -97,6 +97,7 @@ def cadastrar_contratos():
     elif indice == '':
         indice = 'IGPM'
     cadastrarcontratos(inquilino, imovel, aluguel, data, indice)
+
 
 def editar_contratos():
     os.system('cls')
@@ -199,6 +200,8 @@ def editar_contratos():
         else:
             print()
             print(f"{Fore.RED}ERRO! Digite uma opção válida!{Style.RESET_ALL}")
+
+
 def apagar_contratos():
     os.system('cls')
     lercontratos(val)
@@ -236,6 +239,7 @@ def imoveis():
         else:
             print()
             print(f"{Fore.RED}ERRO! Digite uma opção válida!{Style.RESET_ALL}")
+
 
 def cadastrar_imoveis():
     os.system('cls')
@@ -328,6 +332,7 @@ def editar_imoveis():
             print()
             print(f"{Fore.RED}ERRO! Digite uma opção válida!{Style.RESET_ALL}")
 
+
 def apagar_imoveis():
     os.system('cls')
     lerimoveis(val)
@@ -343,6 +348,7 @@ def apagar_imoveis():
             os.system('cls')
             imoveis()
     deletar(x, 'imoveis')
+
 
 def inquilinos():
     os.system('cls')
@@ -365,6 +371,7 @@ def inquilinos():
         else:
             print()
             print(f"{Fore.RED}ERRO! Digite uma opção válida!{Style.RESET_ALL}")
+
 
 def cadastrar_inquilinos():
     os.system('cls')
@@ -400,6 +407,7 @@ def cadastrar_inquilinos():
                 os.system('cls')
                 inquilinos()
     cadastrarinquilinos(nome, doc)
+
 
 def editar_inquilino():
     os.system('cls')
@@ -461,6 +469,7 @@ def editar_inquilino():
             print()
             print(f"{Fore.RED}ERRO! Digite uma opção válida!{Style.RESET_ALL}")
 
+
 def apagar_inquilino():
     os.system('cls')
     lerinquilinos(val)
@@ -481,6 +490,7 @@ def sair():
     cabeçalho('Saindo do sistema... Até Logo!', 32)
     sleep(1)
     os._exit(0)
+
 
 exibir_tela_inicial()
 menuprincipal()

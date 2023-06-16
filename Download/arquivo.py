@@ -4,6 +4,7 @@ import colorama
 from colorama import Fore, Style
 colorama.init()
 
+
 def leiadinheiro(msg):
     while True:
         valor = str(input(msg)).replace(',', '.').strip()
@@ -26,6 +27,7 @@ def validar_data(data_str): #Obriga o usuário do sistema a inserir data no padr
     except ValueError:
         return False
 
+
 def leiaInt(msg):
     while True:
         try:
@@ -38,8 +40,11 @@ def leiaInt(msg):
             return 0
         else:
             return n
+
+
 def linhas(tam):
     return '-' * tam
+
 
 def cabeçalho(txt,tam):
     print(linhas(tam))
@@ -49,6 +54,8 @@ def cabeçalho(txt,tam):
 # título: O que seráa escrito no cabeçalho do MENU.
 # linha: Quantidade de caracteres '-' que será colocado  no corpo do MENU.
 # lista: Dados do MENU
+
+
 def menu(titulo, tam, lista):
     cabeçalho(titulo,tam)
     c = 1
@@ -67,14 +74,14 @@ def exit_():
     print()
     sleep(1)
 
-def exibir_tela_inicial():
 
+def exibir_tela_inicial():
     print(f"{Fore.LIGHTCYAN_EX}*********************************")
     print("*       SISTEMA DE GESTÃO       *")
     print("*                               *")
     print("*      CONTRATOS DE LOCAÇÃO     *")
     print("*                               *")
-    print("*         Versão 7.0            *")
+    print("*         Versão 8.0            *")
     print("*                               *")
     print("*********************************")
     print(f"{Style.RESET_ALL}")
