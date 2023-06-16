@@ -15,7 +15,6 @@ def lercontratos(x):
         cursor.execute("select contratos.id, inquilinos.nome, imoveis.ref, imoveis.endereço, contratos.valor, contratos.data, contratos.indice from contratos join inquilinos on contratos.idinquilinos = inquilinos.id join imoveis on contratos.idimoveis = imoveis.id order by nome;")
     else: # SERÁ EXIBIDO NA TELA APENAS OS DADOS REFERENTE O Nº ID SELECIONADO
         cursor.execute(f"select contratos.id, inquilinos.nome, imoveis.ref, imoveis.endereço, contratos.valor, contratos.data, contratos.indice from contratos join inquilinos on contratos.idinquilinos = inquilinos.id join imoveis on contratos.idimoveis = imoveis.id where contratos.id= {x};")
-
     resultados = cursor.fetchall()
     print()
     print(linhas(147))
@@ -26,7 +25,7 @@ def lercontratos(x):
     conn.close()
     print(linhas(147))
     print()
-    TotalAlugueis()
+
 
 def TotalAlugueis():
     os.system('cls')
@@ -35,16 +34,14 @@ def TotalAlugueis():
     cursor.execute("select contratos.valor from contratos;")
     resultados = cursor.fetchall()
     print()
-    print(linhas(147))
+    print(linhas(65))
     cont = 0
     for linha in resultados:
         cont = linha[0] + cont
     print("Sua recebimento mensal de alugueis está previsto em {}R$ {:.2f}{}".format(Fore.LIGHTYELLOW_EX,cont,Style.RESET_ALL).replace(".", ","))
-    print(linhas(147))
+    print(linhas(65))
     print()
     conn.close()
-
-
 
 
 def lerimoveis(x):
@@ -85,7 +82,6 @@ def lerinquilinos(x):
     conn.close()
     print(linhas(75))
     print()
-
 
 
 def cadastrarcontratos(nome, imovel, valor, data, indice):
@@ -145,6 +141,7 @@ def deletar(x,y):
     sleep(0.5)
     conn.close()
     os.system('cls')
+
 
 def editar(x,y,z,t):
     conn = sqlite3.connect('dbalugueisv2.db')
