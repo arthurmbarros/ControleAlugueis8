@@ -89,3 +89,7 @@ def exibir_tela_inicial():
     print()
     sleep(3)
     print(f"{Fore.LIGHTCYAN_EX}Inicialização concluída!{Style.RESET_ALL}")
+
+
+def transforma_valor(valor):
+    return '{:,.2f}'.format(valor).replace('.', '-').replace(',', '.').replace('-', ',')

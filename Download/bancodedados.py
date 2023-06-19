@@ -18,10 +18,10 @@ def lercontratos(x):
     resultados = cursor.fetchall()
     print()
     print(linhas(147))
-    print('{:<3} {:<33} {:<24} {:<45} {:<13} {:<12} {:<5} '.format('ID','INQUILINO', 'CIDADE', 'ENDEREÇO','VALOR','DATA BASE','INDICE'))
+    print('{:<3} {:<33} {:<24} {:<43} {:<14} {:<12} {:<5} '.format('ID','INQUILINO', 'CIDADE', 'ENDEREÇO','VALOR','DATA BASE','INDICE'))
     print(linhas(147))
     for linha in resultados:
-        print("{:<3} {:<33} {:<24} {:<45} R$ {:<10.2f} {:<13}{:<2} ".format(linha[0], linha[1], linha[2], linha[3], (linha[4]), linha[5], linha[6]))
+        print("{:<3} {:<33} {:<24} {:<43} R$ {:<11} {:<13}{:<2} ".format(linha[0], linha[1], linha[2], linha[3], transforma_valor(linha[4]), linha[5], linha[6]))
     conn.close()
     print(linhas(147))
     print()
@@ -39,7 +39,7 @@ def TotalAlugueis():
     for linha in resultados:
         cont = linha[0] + cont
         c=c+1
-    print("Sua recebimento mensal de alugueis está previsto em {}R$ {:.2f}{} provenientes de {}{}{} contratos ativos".format(Fore.LIGHTYELLOW_EX,cont,Style.RESET_ALL,Fore.LIGHTYELLOW_EX,c,Style.RESET_ALL).replace(".", ","))
+    print("Sua recebimento mensal de alugueis está previsto em {}R$ {}{} provenientes de {}{}{} contratos ativos".format(Fore.LIGHTYELLOW_EX,transforma_valor(cont),Style.RESET_ALL,Fore.LIGHTYELLOW_EX,c,Style.RESET_ALL))
     print(linhas(100))
     print()
     conn.close()
