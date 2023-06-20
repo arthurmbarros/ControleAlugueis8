@@ -50,18 +50,18 @@ def lerimoveis(x):
     conn = sqlite3.connect('dbalugueisv2.db')
     cursor = conn.cursor()
     if x == False:
-        cursor.execute("select * from imoveis order by ref")
+        cursor.execute("select * from imoveis order by ref,endereço")
     else:
         cursor.execute(f"select * from imoveis where id = {x}")
     resultados = cursor.fetchall()
     print()
-    print(linhas(115))
+    print(linhas(85))
     print('{:<5} {:<30} {}'.format('ID','CIDADE/ESTADO','ENDEREÇO'))
-    print(linhas(115))
+    print(linhas(85))
     for linha in resultados:
         print("{:<5} {:<30} {}".format(linha[0], linha[1], linha[2]))
     conn.close()
-    print(linhas(115))
+    print(linhas(85))
     print()
 
 
