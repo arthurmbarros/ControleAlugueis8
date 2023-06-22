@@ -12,7 +12,7 @@ def lercontratos(x):
     conn = sqlite3.connect('dbalugueisv2.db')
     cursor = conn.cursor()
     if x == False: # SERÁ EXIBIDO NA TELA TODOS OS DADOS DO CONTRATO
-        cursor.execute("select contratos.id, inquilinos.nome, imoveis.ref, imoveis.endereço, contratos.valor, contratos.data, contratos.indice from contratos join inquilinos on contratos.idinquilinos = inquilinos.id join imoveis on contratos.idimoveis = imoveis.id order by nome;")
+        cursor.execute("select contratos.id, inquilinos.nome, imoveis.ref, imoveis.endereço, contratos.valor, contratos.data, contratos.indice from contratos join inquilinos on contratos.idinquilinos = inquilinos.id join imoveis on contratos.idimoveis = imoveis.id order by nome COLLATE NOCASE;")
     else: # SERÁ EXIBIDO NA TELA APENAS OS DADOS REFERENTE O Nº ID SELECIONADO
         cursor.execute(f"select contratos.id, inquilinos.nome, imoveis.ref, imoveis.endereço, contratos.valor, contratos.data, contratos.indice from contratos join inquilinos on contratos.idinquilinos = inquilinos.id join imoveis on contratos.idimoveis = imoveis.id where contratos.id= {x};")
     resultados = cursor.fetchall()
@@ -50,7 +50,7 @@ def lerimoveis(x):
     conn = sqlite3.connect('dbalugueisv2.db')
     cursor = conn.cursor()
     if x == False:
-        cursor.execute("select * from imoveis order by ref,endereço")
+        cursor.execute("select * from imoveis order by ref COLLATE NOCASE, endereço COLLATE NOCASE ")
     else:
         cursor.execute(f"select * from imoveis where id = {x}")
     resultados = cursor.fetchall()
@@ -70,7 +70,7 @@ def lerinquilinos(x):
     conn = sqlite3.connect('dbalugueisv2.db')
     cursor = conn.cursor()
     if x == False:
-        cursor.execute("select * from inquilinos order by nome")
+        cursor.execute("select * from inquilinos order by nome COLLATE NOCASE")
     else:
         cursor.execute(f"select * from inquilinos where id = {x}")
     resultados=cursor.fetchall()
